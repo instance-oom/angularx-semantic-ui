@@ -1,0 +1,12 @@
+{
+  "name": "angularx-semantic-ui",
+  "peerDependencies": {
+    "@angular/animations": "*",
+    "@angular/common": "*",
+    "@angular/compiler": "*",
+    "@angular/core": "*",
+    "@angular/forms": "*",
+    "typescript": "*",
+    "rxjs": "*"
+  }
+}

@@ -1,0 +1,97 @@
+<h1 class="ui header">
+  Accordion Demo
+  <div class="sub header">
+    An accordion allows users to toggle the display of sections of content
+  </div>
+</h1>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Design
+  </h3>
+  <div [ngClass]="{'ui inverted segment': accordOption.inverted && !accordOption.styled}">
+    <lsu-accordion [option]="accordOption">
+      <lsu-accordionPanel [title]="panel.title" [active]="panel.active" *ngFor="let panel of panels;">
+        <p>{{ panel.content }}</p>
+      </lsu-accordionPanel>
+    </lsu-accordion>
+  </div>
+</div>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">Options</h3>
+  <lsu-checkbox class="m-r-md" [(ngModel)]="accordOption.allowMultiple" [label]="'Allow Multiple'" [type]="'checkbox'"></lsu-checkbox>
+  <lsu-checkbox class="m-r-md" [(ngModel)]="accordOption.styled" [label]="'Styled'" [type]="'checkbox'"></lsu-checkbox>
+  <lsu-checkbox class="m-r-md" [(ngModel)]="accordOption.fluid" [label]="'Fluid'" [type]="'checkbox'"></lsu-checkbox>
+  <lsu-checkbox class="m-r-md" [(ngModel)]="accordOption.inverted" [label]="'Inverted'" [type]="'checkbox'"></lsu-checkbox>
+  <div class="ui warning message" [class.visible]="accordOption.inverted && accordOption.styled" [class.hidden]="!accordOption.inverted || !accordOption.styled">
+    <p>Styled and Inverted can not be used at the same time</p>
+  </div>
+</div>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Codes
+  </h3>
+  <lsu-tabset [type]="'secondary'">
+    <lsu-tab [headerText]="'accordion.html'">
+      <pre lsu-codeblock [language]="'html'">
+        <textarea>
+<lsu-accordion [option]="accordOption">
+  <lsu-accordionPanel [title]="panel.title" [active]="panel.active" *ngFor="let panel of panels;">
+    <p>(<(content)>)</p>
+  </lsu-accordionPanel>
+</lsu-accordion>
+        </textarea>
+      </pre>
+    </lsu-tab>
+    <lsu-tab [headerText]="'accordion.page.ts'">
+      <pre lsu-codeblock [language]="'typescript'">
+        <textarea>
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'accordion-demo',
+  templateUrl: './accordion.html'
+})
+
+export class AccordionDemoPage {
+
+  panels: Array<any>;
+  accordOption: any;
+
+  constructor() {
+  }
+
+  ngOnInit() {
+    this.accordOption = {
+      "styled": true,
+      "fluid": true,
+      "inverted": false,
+      "allowMultiple": false
+    };
+
+    this.panels = [
+      {
+        title: 'What is a dog?',
+        content: `A dog is a type of domesticated animal. Known for its loyalty and faithfulness,
+                  it can be found as a welcome guest in many households across the world.`,
+        active: false
+      }, {
+        title: 'What kinds of dogs are there?',
+        content: `There are many breeds of dogs. Each breed varies in size and temperament.
+                  Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.`,
+        active: true
+      }, {
+        title: 'How do you acquire a dog?',
+        content: 'Three common ways for a prospective owner to acquire a dog is from pet shops, private owners, or shelters.',
+        active: false
+      }
+    ];
+  }
+}
+        </textarea>
+      </pre>
+    </lsu-tab>
+  </lsu-tabset>
+</div>
