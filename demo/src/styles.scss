@@ -1,0 +1,69 @@
+/* You can add global styles to this file, and also import other style files */
+
+.router-link-active {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+ul.change-log {
+  list-style: none;
+  padding: 0 0 0 10px;
+  display: flex;
+  flex-direction: column-reverse;
+  li {
+    position: relative;
+    &::before {
+      position: absolute;
+      left: -5px;
+      top: 1px;
+      content: '-';
+      font-weight: 700;
+    }
+    padding: 3px 5px;
+    font-size: 13px;
+    b {
+      background-color: #eeeeee;
+      color: orange;
+      border-radius: 5px;
+      padding: 1px 5px;
+    }
+    .date {
+      color: tomato;
+      &::before {
+        content: '[';
+        margin-right: 3px;
+      }
+      &::after {
+        content: ']';
+        margin-left: 3px;
+      }
+    }
+  }
+}
+
+h3 {
+  border-bottom: 1px solid lightgrey;
+}
+
+.m-t-xs {
+  margin-top: 5px !important;
+}
+
+.m-t {
+  margin-top: 10px !important;
+}
+
+.m-t-md {
+  margin-top: 20px !important;
+}
+
+.m-r-xs {
+  margin-right: 5px !important;
+}
+
+.m-r {
+  margin-right: 10px !important;
+}
+
+.m-r-md {
+  margin-right: 20px !important;
+}

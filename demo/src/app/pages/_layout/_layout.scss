@@ -1,0 +1,55 @@
+.ui.left.sidebar,
+.ui.right.sidebar {
+  width: 250px !important;
+  background-color: rgba(27, 28, 29, 0.9) !important;
+}
+
+.logo {
+  display: flex;
+  padding: 15px 10px;
+  align-items: center;
+  >img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  >.title {
+    flex: 1;
+    padding: 0 10px;
+    color: white;
+    font-size: 20px;
+    line-height: 1.1;
+    &>span {
+      color: orange;
+    }
+  }
+}
+
+a.item.menu {
+  padding: 15px 22px;
+  cursor: pointer;
+  font-weight: 500;
+  &:hover,
+  &.active {
+    background: rgba(255, 255, 255, .1) !important;
+    font-weight: bold;
+    border-left: 4px solid #ffffff;
+  }
+}
+
+.header {
+  overflow: hidden;
+  color: darkgrey;
+  background: #222222;
+  text-overflow: clip;
+  padding: 8px 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.content {
+  padding: 15px;
+  position: relative;
+  left: 250px;
+  width: calc(100% - 250px);
+}
