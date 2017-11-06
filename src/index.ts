@@ -3,6 +3,9 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 
 import { L_AccordionModule } from './accordion/accordion.module';
 import { L_CheckboxModule } from './checkbox/checkbox.module';
+import { L_DimmerModule } from './dimmer/dimmer.module';
+import { L_DropdownModule } from './dropdown/dropdown.module';
+
 import { L_TabModule } from './tab/tab.module';
 
 export {
@@ -17,6 +20,16 @@ export {
 } from './checkbox';
 
 export {
+  DimmerComponent,
+  L_DimmerModule
+} from './dimmer';
+
+export {
+  DropdownComponent,
+  L_DropdownModule
+} from './dropdown';
+
+export {
   TabComponent,
   TabSetComponent,
   L_TabModule
@@ -25,6 +38,9 @@ export {
 let modules: Array<any> = [
   L_AccordionModule,
   L_CheckboxModule,
+  L_DimmerModule,
+  L_DropdownModule,
+
   L_TabModule
 ]
 

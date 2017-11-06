@@ -1,0 +1,131 @@
+<h1 class="ui header">
+  Dropdown Demo
+  <div class="sub header">
+    A dropdown allows a user to select a value from a series of options
+  </div>
+</h1>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Design
+  </h3>
+  <label class="ui large teal label">
+    Single Select
+  </label>
+  <hr>
+  <div class="ui two column grid">
+    <div class="column">
+      <lsu-dropdown [(ngModel)]="selectedColor" [data]="colors" [placeHolder]="'select color'"></lsu-dropdown>
+      <div class="ui message" *ngIf="selectedColor">
+        <strong>Selected Color: </strong> {{ selectedColor | json }}
+      </div>
+    </div>
+    <div class="column">
+      <lsu-dropdown [(ngModel)]="selectedPerson" [data]="persons" [textField]="fieldForShow" [placeHolder]="'select person'"></lsu-dropdown>
+      <div class="ui message" *ngIf="selectedPerson">
+        <strong>Selected Person: </strong> {{ selectedPerson | json }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="m-t-md">
+  <label class="ui large teal label">
+    Multiple Select
+  </label>
+  <hr>
+  <lsu-dropdown [(ngModel)]="selectedPersons" [data]="persons" [textField]="fieldForShow" [placeHolder]="'select persons'"
+    [multiple]="true"></lsu-dropdown>
+  <div class="ui message" *ngIf="selectedPersons && selectedPersons.length > 0">
+    <strong>Selected Persons: </strong> {{ selectedPersons | json }}
+  </div>
+</div>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Options
+  </h3>
+  <ul class="ui list">
+    <li value="-">
+      <strong>data:</strong>&nbsp;&nbsp;<strong style="color: tomato">Required</strong>. Type of Array, when the array is
+      stored in the Object, you need to specify the
+      <strong style="color: tomato">textField</strong>
+    </li>
+    <li value="-">
+      <strong>textField:</strong>&nbsp;&nbsp;Specify which properties are used to display on the page for object, Default is <strong style="color: tomato">text</strong>
+    </li>
+    <li value="-">
+      <strong>idField:</strong>&nbsp;&nbsp;Specify which properties are used to uniq the item for object, Default is <strong style="color: tomato">id</strong>
+    </li>
+    <li value="-">
+      <strong>placeHolder:</strong>&nbsp;&nbsp;Optional.
+    </li>
+    <li value="-">
+      <strong>multiple:</strong>&nbsp;&nbsp;Optional. Type of boolean. Default is <strong style="color: tomato">false</strong>
+    </li>
+  </ul>
+</div>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Codes
+  </h3>
+  <lsu-tabset [type]="'secondary'">
+    <lsu-tab [headerText]="'dropdown.html'">
+      <pre lsu-codeblock [language]="'html'">
+        <textarea>
+<lsu-dropdown [(ngModel)]="selectedColor" [data]="colors" [placeHolder]="'select color'"></lsu-dropdown>
+<lsu-dropdown [(ngModel)]="selectedPerson" [data]="persons" [textField]="fieldForShow" [placeHolder]="'select person'"></lsu-dropdown>
+<lsu-dropdown [(ngModel)]="selectedPersons" [data]="persons" [textField]="fieldForShow" [placeHolder]="'select persons'" [multiple]="true"></lsu-dropdown>
+        </textarea>
+      </pre>
+    </lsu-tab>
+    <lsu-tab [headerText]="'dropdown.page.ts'">
+      <pre lsu-codeblock [language]="'typescript'">
+        <textarea>
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'dropdown-demo',
+  templateUrl: './dropdown.html'
+})
+
+export class DropdownDemoPage {
+
+  selectedColor: string;
+  selectedPerson: any;
+  selectedPersons: Array<any> = [];
+  colors: Array<string> = [];
+  persons: Array<any> = [];
+  fieldForShow: string;
+
+  constructor() {
+
+  }
+
+  ngOnInit() {
+    this.colors = ["Green", "Red", "Blue", "Yellow", "Black"];
+    this.persons = [
+      {
+        "id": 1,
+        "name": "Tom",
+        "age": 18
+      }, {
+        "id": 2,
+        "name": "Jerry",
+        "age": 25
+      }, {
+        "id": 3,
+        "name": "Jim",
+        "age": 15
+      }
+    ]
+    this.fieldForShow = "name";
+    this.selectedPersons.push(this.persons[1]);
+  }
+}
+        </textarea>
+      </pre>
+    </lsu-tab>
+  </lsu-tabset>
+</div>

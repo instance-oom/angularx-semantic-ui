@@ -10,6 +10,8 @@ import { LsuDemoLayoutPage } from './_layout/_layout.page';
 import { HomePage } from './home/home.page';
 import { AccordionDemoPage } from './accordion/accordion.page';
 import { CheckBoxDemoPage } from './checkbox/checkbox.page';
+import { DimmerDemoPage } from './dimmer/dimmer.page';
+import { DropdownDemoPage } from './dropdown/dropdown.page';
 
 import { TabDemoPage } from './tab/tab.page';
 
@@ -18,6 +20,8 @@ const DEMO_PAGES: Array<any> = [
   HomePage,
   AccordionDemoPage,
   CheckBoxDemoPage,
+  DimmerDemoPage,
+  DropdownDemoPage,
 
   TabDemoPage
 ]
