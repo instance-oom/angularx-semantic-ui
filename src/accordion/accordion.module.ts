@@ -17,8 +17,8 @@ import { AccordionPanelComponent } from './accordion-panel.component';
     AccordionPanelComponent
   ]
 })
-export class AccordionModule {
+export class L_AccordionModule {
   static forRoot(): ModuleWithProviders {
-    return { ngModule: AccordionModule };
+    return { ngModule: L_AccordionModule };
   }
 }

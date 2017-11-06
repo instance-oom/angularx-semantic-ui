@@ -1,0 +1,98 @@
+<h1 class="ui header">
+  Tab Demo
+  <div class="sub header">
+    A tab is a hidden section of content activated by a menu
+  </div>
+</h1>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Design
+  </h3>
+  <lsu-tabset [type]="type">
+    <lsu-tab [headerText]="item.title" *ngFor="let item of datas">
+      <p style="padding: 20px 10px;">{{item.content}}</p>
+    </lsu-tab>
+  </lsu-tabset>
+</div>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Operate
+  </h3> Type:
+  <div class="ui buttons">
+    <button class="ui icon button" [class.active]="type == 'tabular'" (click)="setType('tabular')">
+      Tabular
+    </button>
+    <button class="ui icon button" [class.active]="type == 'secondary'" (click)="setType('secondary')">
+      Secondary
+    </button>
+    <button class="ui icon button" [class.active]="type == 'pointing'" (click)="setType('pointing')">
+      Pointing
+    </button>
+  </div>
+</div>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Codes
+  </h3>
+  <lsu-tabset [type]="'secondary'">
+    <lsu-tab [headerText]="'tab.html'">
+      <pre lsu-codeblock [language]="'html'">
+        <textarea>
+<lsu-tabset [type]="type">
+  <lsu-tab [headerText]="item.title" *ngFor="let item of datas">
+    <p style="padding: 20px 10px;">(<(item.content)>)</p>
+  </lsu-tab>
+</lsu-tabset>
+        </textarea>
+      </pre>
+    </lsu-tab>
+    <lsu-tab [headerText]="'tab.page.ts'">
+      <pre lsu-codeblock [language]="'typescript'">
+        <textarea>
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'tab-demo',
+  templateUrl: './tab.html'
+})
+export class TabDemoPage {
+
+  datas: Array<any> = [];
+  type: string = 'tabular';
+
+  constructor() {
+  }
+
+  ngOnInit() {
+    this.datas = [
+      {
+        title: 'First',
+        content: `A dog is a type of domesticated animal. Known for its loyalty and faithfulness,
+                  it can be found as a welcome guest in many households across the world.`,
+        active: false
+      }, {
+        title: 'Second',
+        content: `There are many breeds of dogs. Each breed varies in size and temperament.
+                  Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.`,
+        active: true
+      }, {
+        title: 'Third',
+        content: `Three common ways for a prospective owner to acquire a dog is from pet shops,
+                  owners, or shelters.`,
+        active: false
+      }
+    ]
+  }
+
+  setType(type: string) {
+    this.type = type;
+  }
+}
+        </textarea>
+      </pre>
+    </lsu-tab>
+  </lsu-tabset>
+</div>

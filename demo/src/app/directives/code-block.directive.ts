@@ -18,6 +18,8 @@ export class CodeBlockDirective {
     this.ele.textContent = '';
     content = content.trimLeft();
     content = content.trimRight();
+    content = content.replace(/\(\<\(/g, '{{');
+    content = content.replace(/\)\>\)/g, '}}');
 
     let codeElement = document.createElement('code');
     codeElement.textContent = content;

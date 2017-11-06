@@ -1,0 +1,70 @@
+<h1 class="ui header">
+  CheckBox Demo
+  <div class="sub header">
+    A checkbox allows a user to select a value from a small set of options, often binary
+  </div>
+</h1>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Design
+  </h3>
+  <lsu-checkbox [(ngModel)]="isChecked" [disabled]="true" [label]="'Check Box(Disabled)'" [type]="'checkbox'"></lsu-checkbox>&nbsp;&nbsp;
+  <lsu-checkbox [(ngModel)]="isChecked1" [disabled]="false" [label]="'Check Box(type:checkbox)'" [type]="'checkbox'"></lsu-checkbox>&nbsp;&nbsp;
+  <lsu-checkbox [(ngModel)]="isChecked2" [disabled]="false" [label]="'Check Box(type:slider)'" [type]="'slider'"></lsu-checkbox>&nbsp;&nbsp;
+  <lsu-checkbox [(ngModel)]="isChecked3" [disabled]="false" [label]="'Check Box(type:toggle)'" [type]="'toggle'"></lsu-checkbox>
+  <ul class="ui list">
+    <li value="-">Check Box(Disabled): {{ isChecked }}</li>
+    <li value="-">Check Box(type:checkbox): {{ isChecked1 }}</li>
+    <li value="-">Check Box(type:slider): {{ isChecked2 }}</li>
+    <li value="-">Check Box(type:toggle): {{ isChecked3 }}</li>
+  </ul>
+</div>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Codes
+  </h3>
+  <lsu-tabset [type]="'secondary'">
+    <lsu-tab [headerText]="'checkbox.html'">
+      <pre lsu-codeblock [language]="'html'">
+        <textarea>
+<lsu-checkbox [(ngModel)]="isChecked" [disabled]="true" [label]="'Check Box(Disabled)'" [type]="'checkbox'"></lsu-checkbox>
+<lsu-checkbox [(ngModel)]="isChecked1" [disabled]="false" [label]="'Check Box(type:checkbox)'" [type]="'checkbox'"></lsu-checkbox>
+<lsu-checkbox [(ngModel)]="isChecked2" [disabled]="false" [label]="'Check Box(type:slider)'" [type]="'slider'"></lsu-checkbox>
+<lsu-checkbox [(ngModel)]="isChecked3" [disabled]="false" [label]="'Check Box(type:toggle)'" [type]="'toggle'"></lsu-checkbox>
+        </textarea>
+      </pre>
+    </lsu-tab>
+    <lsu-tab [headerText]="'checkbox.page.ts'">
+      <pre lsu-codeblock [language]="'typescript'">
+        <textarea>
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'checkbox-demo',
+  templateUrl: './checkbox.html'
+})
+
+export class CheckBoxDemoPage {
+
+  isChecked = true;
+  isChecked1 = true;
+  isChecked2 = true;
+  isChecked3 = true;
+
+  constructor() {
+
+  }
+
+  ngOnInit() {
+    this.isChecked = false;
+    this.isChecked2 = true;
+  }
+}
+
+        </textarea>
+      </pre>
+    </lsu-tab>
+  </lsu-tabset>
+</div>

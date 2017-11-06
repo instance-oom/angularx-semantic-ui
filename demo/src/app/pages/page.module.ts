@@ -9,11 +9,17 @@ import { DirectivesModule } from './../directives/directives.module';
 import { LsuDemoLayoutPage } from './_layout/_layout.page';
 import { HomePage } from './home/home.page';
 import { AccordionDemoPage } from './accordion/accordion.page';
+import { CheckBoxDemoPage } from './checkbox/checkbox.page';
+
+import { TabDemoPage } from './tab/tab.page';
 
 const DEMO_PAGES: Array<any> = [
   LsuDemoLayoutPage,
   HomePage,
-  AccordionDemoPage
+  AccordionDemoPage,
+  CheckBoxDemoPage,
+
+  TabDemoPage
 ]
 
 import { PageRoutingModule } from './page-routing.module';

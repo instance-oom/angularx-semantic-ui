@@ -1,14 +1,32 @@
 import { CommonModule } from '@angular/common';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 
-import { AccordionModule } from './accordion/accordion.module';
+import { L_AccordionModule } from './accordion/accordion.module';
+import { L_CheckboxModule } from './checkbox/checkbox.module';
+import { L_TabModule } from './tab/tab.module';
 
 export {
   AccordionComponent,
   AccordionPanelComponent,
-  AccordionModule
+  L_AccordionModule
 } from './accordion';
 
+export {
+  CheckBoxComponent,
+  L_CheckboxModule
+} from './checkbox';
+
+export {
+  TabComponent,
+  TabSetComponent,
+  L_TabModule
+} from './tab';
+
+let modules: Array<any> = [
+  L_AccordionModule,
+  L_CheckboxModule,
+  L_TabModule
+]
 
 @NgModule({
   declarations: [
@@ -16,10 +34,10 @@ export {
   ],
   imports: [
     CommonModule,
-    AccordionModule
+    ...modules
   ],
   exports: [
-    AccordionModule
+    ...modules
   ]
 })
 export class L_SEMANTIC_UI_MODULE {
