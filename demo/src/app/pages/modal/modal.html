@@ -1,0 +1,150 @@
+<h1 class="ui header">
+  Modal Demo
+  <div class="sub header">
+    A modal displays content that temporarily blocks interactions with the main view of a site
+  </div>
+</h1>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Design
+  </h3>
+  <div class="ui info message">
+    <p>Click button to show modal.</p>
+  </div>
+  <lsu-modal #demoModal [options]="modalOptions">
+    <div class="header">
+      Profile Picture
+    </div>
+    <div class="image content">
+      <div class="description">
+        <div class="ui header">We've auto-chosen a profile image for you.</div>
+        <p>We've grabbed the following image from the
+          <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
+        <p>Is it okay to use this photo?</p>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="ui black deny button" (click)="hideModal()">
+        Nope
+      </div>
+      <div class="ui positive right labeled icon button" (click)="hideModal()">
+        Yep, that's me
+        <i class="checkmark icon"></i>
+      </div>
+    </div>
+  </lsu-modal>
+</div>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Operate
+  </h3>
+  <div class="ui button" (click)="showModal()">Show Modal</div>
+  <div class="m-t-md">
+    <span style="width: 40px; display: inline-block;">Type:</span>
+    <div class="ui buttons">
+      <button class="ui button" [class.active]="modalOptions.type == 'basic'" (click)="setType('basic')">Basic</button>
+      <button class="ui button" [class.active]="modalOptions.type == 'default'" (click)="setType('default')">Default</button>
+    </div>&nbsp;&nbsp;&nbsp;&nbsp;
+  </div>
+  <div class="m-t-md">
+    <span style="width: 40px; display: inline-block;">Size:</span>
+    <div class="ui buttons">
+      <button class="ui icon button" [class.active]="modalOptions.size == 'small'" (click)="setSize('small')">
+        Small
+      </button>
+      <button class="ui icon button" [class.active]="modalOptions.size == 'large'" (click)="setSize('large')">
+        Large
+      </button>
+      <button class="ui icon button" [class.active]="modalOptions.size == 'fullscreen'" (click)="setSize('fullscreen')">
+        Fullscreen
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Codes
+  </h3>
+  <lsu-tabset [type]="'secondary'">
+    <lsu-tab [headerText]="'modal.html'">
+      <pre lsu-codeblock [language]="'html'">
+        <textarea>
+<lsu-modal #demoModal [options]="modalOptions">
+  <div class="header">
+    Profile Picture
+  </div>
+  <div class="image content">
+    <div class="description">
+      <div class="ui header">We've auto-chosen a profile image for you.</div>
+      <p>We've grabbed the following image from the
+        <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
+      <p>Is it okay to use this photo?</p>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui black deny button" (click)="hideModal()">
+      Nope
+    </div>
+    <div class="ui positive right labeled icon button" (click)="hideModal()">
+      Yep, that's me
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+</lsu-modal>
+        </textarea>
+      </pre>
+    </lsu-tab>
+    <lsu-tab [headerText]="'modal.page.ts'">
+      <pre lsu-codeblock [language]="'typescript'">
+        <textarea>
+import { Component, ViewChild } from '@angular/core';
+
+@Component({
+  selector: 'modal-demo',
+  templateUrl: './modal.html'
+})
+export class ModalDemoPage {
+
+  @ViewChild('demoModal')
+  demoModal: any;
+
+  modalOptions: any;
+
+  constructor() {
+
+  }
+
+  ngOnInit() {
+    this.modalOptions = {
+      "size": "small",
+      "type": "default",
+      "closeable": true
+    }
+  }
+
+  showModal() {
+    this.demoModal.show();
+  }
+
+  hideModal() {
+    this.demoModal.hide();
+  }
+
+  setType(type: string): void {
+    this.modalOptions.type = type;
+    this.showModal();
+  }
+
+  setSize(size: string): void {
+    this.modalOptions.size = size;
+    this.showModal();
+  }
+}
+        </textarea>
+      </pre>
+    </lsu-tab>
+  </lsu-tabset>
+</div>

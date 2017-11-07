@@ -5,6 +5,8 @@ import { L_AccordionModule } from './accordion/accordion.module';
 import { L_CheckboxModule } from './checkbox/checkbox.module';
 import { L_DimmerModule } from './dimmer/dimmer.module';
 import { L_DropdownModule } from './dropdown/dropdown.module';
+import { L_LoaderModule } from './loader/loader.module';
+import { L_ModalModule } from './modal/modal.module';
 
 import { L_TabModule } from './tab/tab.module';
 
@@ -30,6 +32,16 @@ export {
 } from './dropdown';
 
 export {
+  LoaderComponent,
+  L_LoaderModule
+} from './loader';
+
+export {
+  ModalComponent,
+  L_ModalModule
+} from './modal';
+
+export {
   TabComponent,
   TabSetComponent,
   L_TabModule
@@ -40,6 +52,8 @@ let modules: Array<any> = [
   L_CheckboxModule,
   L_DimmerModule,
   L_DropdownModule,
+  L_LoaderModule,
+  L_ModalModule,
 
   L_TabModule
 ]

@@ -12,6 +12,8 @@ import { AccordionDemoPage } from './accordion/accordion.page';
 import { CheckBoxDemoPage } from './checkbox/checkbox.page';
 import { DimmerDemoPage } from './dimmer/dimmer.page';
 import { DropdownDemoPage } from './dropdown/dropdown.page';
+import { LoaderDemoPage } from './loader/loader.page';
+import { ModalDemoPage } from './modal/modal.page';
 
 import { TabDemoPage } from './tab/tab.page';
 
@@ -22,6 +24,8 @@ const DEMO_PAGES: Array<any> = [
   CheckBoxDemoPage,
   DimmerDemoPage,
   DropdownDemoPage,
+  LoaderDemoPage,
+  ModalDemoPage,
 
   TabDemoPage
 ]

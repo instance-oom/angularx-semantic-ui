@@ -7,6 +7,8 @@ import { AccordionDemoPage } from './accordion/accordion.page';
 import { CheckBoxDemoPage } from './checkbox/checkbox.page';
 import { DimmerDemoPage } from './dimmer/dimmer.page';
 import { DropdownDemoPage } from './dropdown/dropdown.page';
+import { LoaderDemoPage } from './loader/loader.page';
+import { ModalDemoPage } from './modal/modal.page';
 
 import { TabDemoPage } from './tab/tab.page';
 
@@ -19,6 +21,8 @@ const routes: Routes = [
       { path: 'checkbox', component: CheckBoxDemoPage },
       { path: 'dimmer', component: DimmerDemoPage },
       { path: 'dropdown', component: DropdownDemoPage },
+      { path: 'loader', component: LoaderDemoPage },
+      { path: 'modal', component: ModalDemoPage },
 
       { path: 'tab', component: TabDemoPage }
     ]
