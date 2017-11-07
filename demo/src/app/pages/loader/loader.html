@@ -1,0 +1,125 @@
+<h1 class="ui header">
+  Loader Demo
+  <div class="sub header">
+    A loader alerts a user to wait for an activity to complete
+  </div>
+</h1>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Design
+  </h3>
+  <div class="ui segment" style="margin: 10px 0; width:100%;">
+    <img src="http://semantic-ui.com/images/wireframe/short-paragraph.png" alt="">
+    <br>
+    <img src="http://semantic-ui.com/images/wireframe/short-paragraph.png" alt="">
+    <lsu-loader #demoLoader [active]="activeLoader" [loaderText]="loaderText" [loaderSize]="loaderSize"></lsu-loader>
+  </div>
+</div>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Operate
+  </h3>
+  <div class="ui button" (click)="toggle()">{{ activeLoader ? 'Hidden' : 'Show' }} Loader</div>&nbsp;&nbsp;&nbsp;&nbsp; Loader Size:
+  <div class="ui buttons">
+    <button class="ui icon button" [class.active]="loaderSize == 'mini'" (click)="setSize('mini')">
+      Mini
+    </button>
+    <button class="ui icon button" [class.active]="loaderSize == 'small'" (click)="setSize('small')">
+      Small
+    </button>
+    <button class="ui icon button" [class.active]="loaderSize == 'medium'" (click)="setSize('medium')">
+      Medium
+    </button>
+    <button class="ui icon button" [class.active]="loaderSize == 'large'" (click)="setSize('large')">
+      Large
+    </button>
+  </div>&nbsp;&nbsp;&nbsp;&nbsp; Loader Text:
+  <div class="ui input">
+    <input type="text" placeholder="Loader text..." [(ngModel)]="loaderText" maxlength="20">
+  </div>
+</div>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Options
+  </h3>
+  <ul class="ui list">
+    <li value="-">
+      <strong>active:</strong>&nbsp;&nbsp;Optional. Type of boolean. Show or hidden loader. Default is
+      <strong style="color:tomato">false</strong>
+    </li>
+    <li value="-">
+      <strong>loaderText:</strong>&nbsp;&nbsp;Optional. Type of string.
+    </li>
+    <li value="-">
+      <strong>loaderSize:</strong>&nbsp;&nbsp;Optional. Type of string.
+      <strong style="color:tomato">[mini | small | medium | large]</strong>
+    </li>
+  </ul>
+</div>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Codes
+  </h3>
+  <lsu-tabset [type]="'secondary'">
+    <lsu-tab [headerText]="'loader.html'">
+      <pre lsu-codeblock [language]="'html'">
+        <textarea>
+<div class="ui segment" style="margin: 10px 0; width:100%;">
+  <lsu-loader [active]="activeLoader" [loaderText]="loaderText" [loaderSize]="loaderSize"></lsu-loader>
+  <div class="ui button" (click)="toggle()">{{ activeLoader ? 'Hidden' : 'Show' }} Loader</div>
+  <lsu-loader #demoLoader [loaderText]="loaderText" [loaderSize]="loaderSize"></lsu-loader>
+  <div class="ui button" (click)="showDemoLoader()">Show Loader</div>
+  <div class="ui button" (click)="hideDemoLoader()">Hide Loader</div>
+</div>
+        </textarea>
+      </pre>
+    </lsu-tab>
+    <lsu-tab [headerText]="'loader.page.ts'">
+      <pre lsu-codeblock [language]="'typescript'">
+        <textarea>
+import { Component, ViewChild } from '@angular/core';
+
+@Component({
+  selector: 'loader-demo',
+  templateUrl: './loader.html'
+})
+export class LoaderDemoPage {
+
+  @ViewChild('demoLoader') demoLoader: any;
+
+  activeLoader: boolean;
+  loaderSize: string = "medium";
+  loaderText: string;
+
+  constructor() {
+  }
+
+  ngOnInit() {
+    this.activeLoader = true;
+  }
+
+  toggle(): void {
+    this.activeLoader = !this.activeLoader;
+  }
+
+  showDemoLoader() {
+    this.demoLoader.show();
+  }
+
+  hideDemoLoader() {
+    this.demoLoader.hide();
+  }
+
+  setSize(size: string): void {
+    this.loaderSize = size;
+  }
+}
+        </textarea>
+      </pre>
+    </lsu-tab>
+  </lsu-tabset>
+</div>
