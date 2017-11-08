@@ -1,0 +1,167 @@
+<h1 class="ui header">
+  Pagination Demo
+  <div class="sub header">
+    A pagination component
+  </div>
+</h1>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Design
+  </h3>
+  <div class="ui segment">
+    <table class="ui celled table">
+      <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>OrderNo</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of data">
+          <td>{{ item.ID }}</td>
+          <td>{{ item.Name }}</td>
+          <td>{{ item.Age }}</td>
+          <td>{{ item.OrderNo }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <lsu-loader [active]="activeLoader" [loaderText]="'Loading...'"></lsu-loader>
+  </div>
+  <div style="padding:5px 0;">
+    <lsu-pagination [disabled]="pagerDisabled" [totalCount]="totalCount" [pageSize]="pageSize" [currentPage]="currentPage" [maxSize]="maxSize"
+      [options]="pageOptions" (onSelectPage)="onSelectPage($event)"></lsu-pagination>
+  </div>
+</div>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Operate
+  </h3>
+  <lsu-checkbox [(ngModel)]="pageOptions.hidenLabel" [label]="'Hidden Pagination Label'" [type]="'slider'"></lsu-checkbox>&nbsp;&nbsp;
+  <lsu-checkbox [(ngModel)]="pageOptions.boundaryLinks" [label]="'Show boundaryLinks'" [type]="'slider'"></lsu-checkbox>&nbsp;&nbsp;
+  <lsu-checkbox [(ngModel)]="pageOptions.directionLinks" [label]="'Show DirectionLinks'" [type]="'slider'"></lsu-checkbox>
+</div>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Options
+  </h3>
+  <ul class="ui list">
+    <li value="-"><strong>disabled:</strong>&nbsp;&nbsp;Optional. Type of boolean. Default is <strong style="color: tomato">false</strong></li>
+    <li value="-"><strong>totalCount:</strong>&nbsp;&nbsp;<strong style="color: tomato">Required</strong></li>
+    <li value="-"><strong>pageSize:</strong>&nbsp;&nbsp;Optional. Default is <strong style="color: tomato">10</strong></li>
+    <li value="-"><strong>currentPage:</strong>&nbsp;&nbsp;Optional. Default is <strong style="color: tomato">1</strong></li>
+    <li value="-"><strong>maxSize:</strong>&nbsp;&nbsp;Optional. How many page numbers will show in the page. Default is <strong style="color: tomato">10</strong></li>
+    <li value="-"><strong>onSelectPage:</strong>&nbsp;&nbsp;Optional. The function receives page changes, $event is the selected page number</li>
+    <li value="-">
+      <strong>options:</strong>&nbsp;&nbsp;Optional.
+      <ul class="ui list">
+        <li value="-"><strong>color:</strong>&nbsp;&nbsp;Optional. Type of string.</li>
+        <li value="-"><strong>hidenLabel:</strong>&nbsp;&nbsp;Optional. Whether to display the page prompts, Default is <strong style="color: tomato">true</strong></li>
+        <li value="-"><strong>boundaryLinks:</strong>&nbsp;&nbsp;Optional. Whether to display the first page button and the last page button,
+          Default is <strong style="color: tomato">false</strong></li>
+        <li value="-"><strong>firstText:</strong>&nbsp;&nbsp;Optional. First page button's text, Default is <strong style="color: tomato">First</strong></li>
+        <li value="-"><strong>lastText:</strong>&nbsp;&nbsp;Optional. Last page button's text, Default is <strong style="color: tomato">Last</strong></li>
+        <li value="-"><strong>directionLinks:</strong>&nbsp;&nbsp;Optional. Whether to display the prev page button and the next page button,
+          Default is <strong style="color: tomato">true</strong></li>
+        <li value="-"><strong>prevText:</strong>&nbsp;&nbsp;Optional. Prev page button's text</li>
+        <li value="-"><strong>nextText:</strong>&nbsp;&nbsp;Optional. Next page button's text</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Codes
+  </h3>
+  <lsu-tabset [type]="'secondary'">
+    <lsu-tab [headerText]="'padination.html'">
+      <pre lsu-codeblock [language]="'html'">
+        <textarea>
+<lsu-pagination [disabled]="pagerDisabled" [totalCount]="totalCount" [pageSize]="pageSize" [currentPage]="currentPage"
+  [maxSize]="maxSize" [options]="pageOptions" (onSelectPage)="onSelectPage($event)">
+</lsu-pagination>
+        </textarea>
+      </pre>
+    </lsu-tab>
+    <lsu-tab [headerText]="'padination.page.ts'">
+      <pre lsu-codeblock [language]="'typescript'">
+        <textarea>
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'pagination-demo',
+  templateUrl: './pagination.html'
+})
+export class PaginatinDemoPage {
+
+  totalCount: number;
+  pageSize: number = 10;
+  currentPage: number;
+  maxSize: number = 10;
+  pagerDisabled: boolean = false;
+  pageOptions: any;
+
+  mockDatas: Array<any> = [];
+  data: Array<any> = [];
+
+  activeLoader: boolean = false;
+
+  constructor() {
+
+  }
+
+  ngOnInit() {
+    for (let i = 0; i < 87; i++) {
+      this.mockDatas.push({
+        "ID": i + 1,
+        "Name": "Name_" + i.toFixed(2),
+        "Age": Math.floor(Math.random() * 100),
+        "OrderNo": Math.floor(Math.random() * 100000000)
+      })
+    }
+    this.totalCount = this.mockDatas.length;
+    this.currentPage = 1;
+    this.pageOptions = {
+      "color": "default",
+      "hidenLabel": false,
+      "boundaryLinks": false,
+      "firstText": "First",
+      "lastText": "Last",
+      "directionLinks": true,
+      "prevText": "Prev",
+      "nextText": "Next"
+    }
+    this.data = this.getData(this.currentPage, this.pageSize);
+  }
+
+  getData(pageIndex: number, pageSize: number): Array<any> {
+    var start = (pageIndex - 1) * pageSize;
+    let data: Array<any> = [];
+    for (let i = start; i < pageIndex * pageSize && i < this.totalCount; i++) {
+      data.push(this.mockDatas[i]);
+    }
+    return data;
+  }
+
+  onSelectPage(pageIndex: number): void {
+    this.activeLoader = true;
+    this.pagerDisabled = true;
+    setTimeout(() => {
+      this.data = this.getData(pageIndex, this.pageSize);
+      this.activeLoader = false;
+      this.pagerDisabled = false;
+    }, Math.floor(Math.random() * 1500))
+  }
+
+  togglePagerDisable(): void {
+    this.pagerDisabled = !this.pagerDisabled;
+  }
+}
+        </textarea>
+      </pre>
+    </lsu-tab>
+  </lsu-tabset>
+</div>
