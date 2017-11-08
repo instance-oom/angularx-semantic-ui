@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef, ViewChild } from '@angular/core'
+import { Component, Input, ElementRef, ViewChild, Renderer } from '@angular/core'
 
 @Component({
   selector: 'lsu-dimmer',
@@ -19,7 +19,6 @@ export class DimmerComponent {
   dimmerDiv: ElementRef;
 
   parentEle: any
-  _active: boolean;
 
   @Input()
   public set active(val: boolean) {
@@ -29,8 +28,10 @@ export class DimmerComponent {
   public get active(): boolean {
     return this._active;
   }
+  _active: boolean;
 
-  constructor() {
+  constructor(
+    private _renderer: Renderer) {
   }
 
   ngAfterViewInit() {
@@ -42,12 +43,17 @@ export class DimmerComponent {
 
   toggleDimmer() {
     if (!this.parentEle) return;
-    if (this.active) {
-      this.parentEle.classList.add("dimmable");
-      this.parentEle.classList.add("dimmed");
-    } else {
-      this.parentEle.classList.remove("dimmable");
-      this.parentEle.classList.remove("dimmed");
-    }
+    this._renderer.setElementClass(this.parentEle, 'dimmable', this.active);
+    this._renderer.setElementClass(this.parentEle, 'dimmed', this.active);
+  }
+
+  show() {
+    this.active = true;
+    this.toggleDimmer();
+  }
+
+  hide() {
+    this.active = false;
+    this.toggleDimmer();
   }
 }

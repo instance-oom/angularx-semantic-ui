@@ -72,7 +72,7 @@
     <lsu-tab [headerText]="'modal.html'">
       <pre lsu-codeblock [language]="'html'">
         <textarea>
-<lsu-modal #demoModal [options]="modalOptions">
+<lsu-modal #demoModal [active]="actived" [options]="modalOptions">
   <div class="header">
     Profile Picture
   </div>
@@ -111,6 +111,8 @@ export class ModalDemoPage {
   @ViewChild('demoModal')
   demoModal: any;
 
+  actived = false;
+
   modalOptions: any;
 
   constructor() {
@@ -126,11 +128,13 @@ export class ModalDemoPage {
   }
 
   showModal() {
-    this.demoModal.show();
+    this.actived = true;
+    // OR this.demoModal.show();
   }
 
   hideModal() {
-    this.demoModal.hide();
+    this.actived = false;
+    // OR this.demoModal.hide();
   }
 
   setType(type: string): void {

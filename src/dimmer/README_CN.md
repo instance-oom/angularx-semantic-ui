@@ -13,4 +13,8 @@
 ```
 
 # Options
-- active: 必选，用于控制Dimmer的显隐
+- active: 可选，用于控制Dimmer的显隐
+
+# Methods
+- show: 显示 dimmer 
+- hide: 隐藏 dimmer

@@ -4,7 +4,7 @@
   import { MODAL_DIRECTIVES } from 'angular2-semantic-ui'
 ```
 ```html
-  <lsu-modal #demoModal [options]="modalOptions">
+  <lsu-modal [active]="" [options]="modalOptions">
     <div class="header">
       Profile Picture
     </div>
@@ -32,6 +32,8 @@
 
   @ViewChild('demoModal') demoModal: any;
 
+  actived = false;
+
   modalOptions = {
     "size": "small",
     "type": "basic",
@@ -39,15 +41,18 @@
   }
   
   activeModal(): void {
-    this.demoModal.show();
+    this.actived = true;
+    // OR this.demoModal.show();
   }
 
   cancel(): void {
-    this.demoModal.hide();
+    this.actived = false;
+    // OR this.demoModal.hide();
   }
 ```
 
 # Options
+- active: 可选，控制modal显隐
 - modalOptions: 可选，Modal配置 <a href="http://semantic-ui.com/modules/modal.html#/settings">Semantic-ui Modal Setting</a>
   - size: 可选. Modal尺寸 ` [ small | large | fullscreen] `
   - type: 可选. Modal类型 ` [ basic | default ]`

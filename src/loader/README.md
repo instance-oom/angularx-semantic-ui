@@ -11,7 +11,7 @@
 ```
 
 # Options
-- active:  Required. Used to control the Loader's explicit
+- active:  Optional. Used to control the Loader's explicit
 - loaderText: Optional. The text will be displayied in page 
 - loaderSize: Optional. Loader's size [mini | small | medium | large]
 

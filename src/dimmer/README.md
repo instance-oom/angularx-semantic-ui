@@ -14,4 +14,8 @@
 ```
 
 # Options
-- active: Required. Used to control the Dimmer's explicit
+- active: Optional. Used to control the Dimmer's explicit
+
+# Methods
+- show: show dimmer 
+- hide: hide dimmer

@@ -5,7 +5,7 @@
   import { MODAL_DIRECTIVES } from 'angular2-semantic-ui'
 ```
 ```html
-  <lsu-modal #demoModal [options]="modalOptions">
+  <lsu-modal [active]="" [options]="modalOptions">
     <div class="header">
       Profile Picture
     </div>
@@ -33,6 +33,8 @@
 
   @ViewChild('demoModal') demoModal: any;
 
+  actived = false;
+
   modalOptions = {
     "size": "small",
     "type": "basic",
@@ -40,15 +42,18 @@
   }
   
   activeModal(): void {
-    this.demoModal.show();
+    this.actived = true;
+    // OR this.demoModal.show();
   }
 
   cancel(): void {
-    this.demoModal.hide();
+    this.actived = false;
+    // OR this.demoModal.hide();
   }
 ```
 
 # Options
+- active:  Optional. Used to control the modal's explicit
 - modalOptions: Optional. Modal's options
   - size: Optional. Modal's size ` [ small | large | fullscreen] `
   - type: Optional. Modal's type ` [ basic | default ]`
