@@ -1,0 +1,117 @@
+<h1 class="ui header">
+  Progress Demo
+  <div class="sub header">
+    A progress bar shows the progression of a task
+  </div>
+</h1>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Design
+  </h3>
+  <lsu-progress [label]="label" [percent]="percent" [text]="text" [color]="'teal'" [size]="size"></lsu-progress>
+</div>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Operate
+  </h3>
+  Label:
+  <div class="ui input">
+    <input type="text" [(ngModel)]="label" placeholder="Progress label">
+  </div>&nbsp;&nbsp;&nbsp;&nbsp; Text:
+  <div class="ui input">
+    <input type="text" [(ngModel)]="text" placeholder="Progress text">
+  </div>&nbsp;&nbsp; Size:
+  <div class="ui buttons">
+    <button class="ui icon button" [class.active]="size == 'tiny'" (click)="setSize('tiny')">
+      Tiny
+    </button>
+    <button class="ui icon button" [class.active]="size == 'small'" (click)="setSize('small')">
+      Small
+    </button>
+    <button class="ui icon button" [class.active]="size == 'standard'" (click)="setSize('standard')">
+      Standard
+    </button>
+    <button class="ui icon button" [class.active]="size == 'large'" (click)="setSize('large')">
+      Large
+    </button>
+    <button class="ui icon button" [class.active]="size == 'big'" (click)="setSize('big')">
+      Big
+    </button>
+  </div>
+</div>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Options
+  </h3>
+  <ul class="ui list">
+    <li value="-"><strong>percent:</strong>&nbsp;&nbsp;<strong style="color:tomato">Required</strong>. 0-100</li>
+    <li value="-"><strong>text:</strong>&nbsp;&nbsp;Optional. Just like 50% 、70% 、90%...</li>
+    <li value="-"><strong>label:</strong>&nbsp;&nbsp;Optional. Shown below porgress</li>
+    <li value="-"><strong>color:</strong>&nbsp;&nbsp;Optional. see <a href="http://semantic-ui.com/modules/progress.html#color" target="_blank">Semantic-Ui Progress Color</a></li>
+    <li value="-"><strong>size:</strong>&nbsp;&nbsp;Optional. [ tiny | small | standard | large | big ], Default is <strong style="color: tomato">standard</strong>      </li>
+  </ul>
+</div>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Codes
+  </h3>
+  <lsu-tabset [type]="'secondary'">
+    <lsu-tab [headerText]="'progress.html'">
+      <pre lsu-codeblock [language]="'html'">
+        <textarea>
+<lsu-progress [label]="label" [percent]="percent" [text]="text" [color]="'teal'" [size]="size"></lsu-progress>
+        </textarea>
+      </pre>
+    </lsu-tab>
+    <lsu-tab [headerText]="'progress.page.ts'">
+      <pre lsu-codeblock [language]="'typescript'">
+        <textarea>
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'progress-demo',
+  templateUrl: './progress.html'
+})
+export class ProgressDemoPage {
+
+  label: string = "Uploading...";
+  text: string;
+  color: string = "teal";
+  size: string = "standard";
+  percent: number = 0;
+
+  timer: any;
+
+  constructor() {
+
+  }
+
+  ngOnInit() {
+    this.animation();
+  }
+
+  animation(): void {
+    if (this.timer) {
+      clearInterval(this.timer);
+    }
+    this.timer = setInterval(() => {
+      this.percent += Math.floor(Math.random() * 10 + 10);
+      if (this.percent > 100) {
+        this.percent = 0;
+      }
+    }, 500)
+  }
+
+  setSize(size: string): void {
+    this.size = size;
+  }
+}
+        </textarea>
+      </pre>
+    </lsu-tab>
+  </lsu-tabset>
+</div>

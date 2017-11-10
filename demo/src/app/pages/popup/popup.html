@@ -1,0 +1,77 @@
+<h1 class="ui header">
+  Popup Demo
+  <div class="sub header">
+    A popup displays additional information on top of a page
+  </div>
+</h1>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Design
+  </h3>
+  <button type="button" class="ui button" lsu-popup [trigger]="'click'" [content]="'Popup On Click.'">
+    Click to show popup
+  </button>
+  <button type="button" class="ui teal button" lsu-popup [trigger]="'hover'" [content]="'Popup On Hover.'">
+    Hover to show popup
+  </button>
+  <div class="ui input">
+    <input type="text" placeholder="Search..." lsu-popup [trigger]="'focus'" [content]="'Popup On Focus'">
+  </div>
+</div>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Options
+  </h3>
+  <ul class="ui list">
+    <li value="-"><strong>trigger:</strong>&nbsp;&nbsp;Optional.The way to trigger Popup [ hover | click | docus], Default is <strong style="color: tomato">hover</strong></li>
+    <li value="-"><strong>content:</strong>&nbsp;&nbsp;Optional.Popup text</li>
+  </ul>
+</div>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Codes
+  </h3>
+  <lsu-tabset [type]="'secondary'">
+    <lsu-tab [headerText]="'popup.html'">
+      <pre lsu-codeblock [language]="'html'">
+<textarea>
+<button type="button" class="ui button" lsu-popup [trigger]="'click'" [content]="'Popup On Click.'">
+  Click to show popup
+</button>
+
+<button type="button" class="ui teal button" lsu-popup [trigger]="'hover'" [content]="'Popup On Hover.'">
+  Hover to show popup
+</button>
+
+<div class="ui input">
+  <input type="text" placeholder="Search..." lsu-popup [trigger]="'focus'" [content]="'Popup On Focus'">
+</div>
+        </textarea>
+      </pre>
+    </lsu-tab>
+    <lsu-tab [headerText]="'popup.page.ts'">
+      <pre lsu-codeblock [language]="'typescript'">
+        <textarea>
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'popup-demo',
+  templateUrl: './popup.html'
+})
+export class PopupDemoPage {
+
+  constructor() {
+  }
+
+  ngOnInit() {
+
+  }
+}
+        </textarea>
+      </pre>
+    </lsu-tab>
+  </lsu-tabset>
+</div>
