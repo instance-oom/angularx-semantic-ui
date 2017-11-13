@@ -1,0 +1,67 @@
+<h1 class="ui header">
+  Tags-Input Demo
+  <div class="sub header">
+    A tags-input component
+  </div>
+</h1>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Design
+  </h3>
+  <lsu-tagsInput [(ngModel)]="tags" [placeholder]="'Add Tag'"></lsu-tagsInput>
+  <div class="ui segment">
+    <p>Tags: {{ tags }}</p>
+  </div>
+</div>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Options
+  </h3>
+  <ul style="padding-left: 20px;">
+    <li><b>placeholder</b>: Optional.</li>
+    <li><b>invalidMsg</b>: Optional. Active when has validators.</li>
+    <li><b>validators</b>: Optional. Array&lt;ValidatorFn&gt;.</li>
+  </ul>
+</div>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Codes
+  </h3>
+  <lsu-tabset [type]="'secondary'">
+    <lsu-tab [headerText]="'tags-input.html'">
+      <pre lsu-codeblock [language]="'html'">
+        <textarea>
+<lsu-tagsInput [(ngModel)]="tags" [placeholder]="'Add Tag'"></lsu-tagsInput>
+        </textarea>
+      </pre>
+    </lsu-tab>
+    <lsu-tab [headerText]="'tags-input.page.ts'">
+      <pre lsu-codeblock [language]="'typescript'">
+        <textarea>
+import { Component } from '@angular/core';
+import { Validators } from '@angular/forms';
+
+@Component({
+  selector: 'tagsInput-demo',
+  templateUrl: './tags-input.html'
+})
+export class TagsInputDemoPage {
+
+  tags: Array<string>;
+
+  constructor() {
+
+  }
+
+  ngOnInit() {
+
+  }
+}
+        </textarea>
+      </pre>
+    </lsu-tab>
+  </lsu-tabset>
+</div>

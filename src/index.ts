@@ -11,8 +11,8 @@ import { L_PaginationModule } from './pagination/pagination.module';
 import { L_PopupModule } from './popup/popup.module';
 import { L_ProgressModule } from './progress/progress.module';
 import { L_RatingModule } from './rating/rating.module';
-
 import { L_TabModule } from './tab/tab.module';
+import { L_TagsInputModule } from './tags-input';
 
 export {
   AccordionComponent,
@@ -71,6 +71,11 @@ export {
   L_TabModule
 } from './tab';
 
+export {
+  TagsInputComponent,
+  L_TagsInputModule
+} from './tags-input';
+
 let modules: Array<any> = [
   L_AccordionModule,
   L_CheckboxModule,
@@ -82,8 +87,8 @@ let modules: Array<any> = [
   L_PopupModule,
   L_ProgressModule,
   L_RatingModule,
-
-  L_TabModule
+  L_TabModule,
+  L_TagsInputModule
 ]
 
 @NgModule({

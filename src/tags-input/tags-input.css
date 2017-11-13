@@ -1,0 +1,30 @@
+.tags-input.invalid {
+  border-top: 2px solid #DB2828 !important;
+}
+
+.tags-input .ui.label.transition.visible {
+    height: 25px;
+    display: inline-block !important;
+}
+
+.tags-input .ui.input {
+    display: inline-block;
+    width: auto;
+}
+
+.tags-input .ui.input input {
+    height: 30px;
+    padding: 0 5px;
+    border: none;
+}
+
+.tags-input .ui.input input:focus {
+    border-radius: inherit;
+}
+
+.deleteTarget:hover,
+.deleteTarget {
+    border: 0 solid tomato;
+    background-color: tomato !important;
+    color: white !important;
+}

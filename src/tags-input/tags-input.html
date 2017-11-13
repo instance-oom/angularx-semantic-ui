@@ -1,0 +1,11 @@
+<div #rootEleRef class="ui fluid dropdown selection multiple tags-input" tabindex="-1" (click)="tagsInput.focus()" (keyup)="topKeyup($event)">
+  <a class="ui label transition visible" [class.deleteTarget]="delTarget == tag" *ngFor="let tag of tags; let i = index; let last = last;"
+    (click)="setDeltarget(tag, $event)">
+    {{ tag }}
+    <i class="delete icon" (click)="remove(i, $event)"></i>
+  </a>
+  <div class="ui input">
+    <input type="text" autocomplete="off" [attr.placeholder]="placeholder" #tagsInput (focus)="tagInputOnFocus($event)" (keyup)="tagInputKeyUp($event)"
+      (keydown)="tagInputKeyDown($event)" (keypress)="tagInputKeyPress($event)">
+  </div>
+</div>
