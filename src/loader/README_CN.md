@@ -1,7 +1,7 @@
 # Loader Usage
 
 ```typesctript
-  import { LOADER_DIRECTIVES } from 'angular2-semantic-ui/compangular2-semantic-uionents'
+  import { LOADER_DIRECTIVES } from 'angularx-semantic-ui/compangularx-semantic-uionents'
 ```
 ```html
   <div (click)="toggleLoader()">

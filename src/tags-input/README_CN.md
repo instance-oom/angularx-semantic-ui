@@ -1,7 +1,7 @@
 # Tags-Input 使用方法
 
 ```typesctript
-  import { TagsInputComponent } from 'angular2-semantic-ui'
+  import { TagsInputComponent } from 'angularx-semantic-ui'
 ```
 ```html
   <lsu-tagsInput [(ngModel)]="Tags" [placeholder]="'Add Tag'"></lsu-tagsInput>

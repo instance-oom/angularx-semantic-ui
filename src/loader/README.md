@@ -1,8 +1,8 @@
 # Loader Usage
-<a href="https://github.com/lon-yang/angular2-semantic-ui/blob/master/components/loader/README_CN.md">简体中文</a>
+<a href="https://github.com/lon-yang/angularx-semantic-ui/blob/master/components/loader/README_CN.md">简体中文</a>
 
 ```typesctript
-  import { LOADER_DIRECTIVES } from 'angular2-semantic-ui/compangular2-semantic-uionents'
+  import { LOADER_DIRECTIVES } from 'angularx-semantic-ui/compangularx-semantic-uionents'
 ```
 ```html
   <div (click)="toggleLoader()">

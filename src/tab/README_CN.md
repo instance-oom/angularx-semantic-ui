@@ -1,7 +1,7 @@
 # Tab Usage
 
 ```typesctript
-  import { TAB_DIRECTIVES } from 'angular2-semantic-ui'
+  import { TAB_DIRECTIVES } from 'angularx-semantic-ui'
 ```
 ```html
   <lsu-tabset type="'secondary'">

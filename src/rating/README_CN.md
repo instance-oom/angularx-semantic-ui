@@ -1,7 +1,7 @@
 # Rating Usage
 
 ```typesctript
-  import { RATING_DIRECTIVES } from 'angular2-semantic-ui'
+  import { RATING_DIRECTIVES } from 'angularx-semantic-ui'
 ```
 ```html
   <lsu-rating [(ngModel)]="rating" [maxRating]="'10'" [type]="'heart'" [size]="'huge'"></lsu-rating>

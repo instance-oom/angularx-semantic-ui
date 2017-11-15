@@ -1,8 +1,8 @@
 # Checkbox Usage
-<a href="https://github.com/lon-yang/angular2-semantic-ui/blob/master/components/checkbox/README_CN.md">简体中文</a>
+<a href="https://github.com/lon-yang/angularx-semantic-ui/blob/master/components/checkbox/README_CN.md">简体中文</a>
 
 ```typesctript
-  import { CHECKBOX_DIRECTIVES } from 'angular2-semantic-ui'
+  import { CHECKBOX_DIRECTIVES } from 'angularx-semantic-ui'
 ```
 ```html
   <lsu-checkbox [(ngModel)]="isChecked" [disabled]="'false'" [label]="'CheckBox'" [type]="'slider'" (onChange)="onChange($event)"></lsu-checkbox>

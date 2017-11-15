@@ -1,7 +1,7 @@
 # Popup Usage
 
 ```typesctript
-  import { POPUP_DIRECTIVES } from 'angular2-semantic-ui/compangular2-semantic-uionents'
+  import { POPUP_DIRECTIVES } from 'angularx-semantic-ui/compangularx-semantic-uionents'
 ```
 ```html
   <button type="button" class="ui button" lsu-popup [trigger]="'click'" [content]="'Popup One.'">

@@ -1,8 +1,8 @@
 # Dropdown Usage
-<a href="https://github.com/lon-yang/angular2-semantic-ui/blob/master/components/dropdown/README_CN.md">简体中文</a>
+<a href="https://github.com/lon-yang/angularx-semantic-ui/blob/master/components/dropdown/README_CN.md">简体中文</a>
 
 ```typesctript
-  import { DROPDOWN_DIRECTIVES } from 'angular2-semantic-ui'
+  import { DROPDOWN_DIRECTIVES } from 'angularx-semantic-ui'
 ```
 ```html
   <lsu-dropdown [(ngModel)]="selectedItem" [data]="data" (change)="onChange($event)"></lsu-dropdown>

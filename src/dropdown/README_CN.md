@@ -1,7 +1,7 @@
 # Dropdown Usage
 
 ```typesctript
-  import { DROPDOWN_DIRECTIVES } from 'angular2-semantic-ui'
+  import { DROPDOWN_DIRECTIVES } from 'angularx-semantic-ui'
 ```
 ```html
   <lsu-dropdown [(ngModel)]="selectedItem" [data]="data" (change)="onChange($event)"></lsu-dropdown>

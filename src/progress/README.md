@@ -1,8 +1,8 @@
 # Progress Usage
-<a href="https://github.com/lon-yang/angular2-semantic-ui/blob/master/components/progress/README_CN.md">简体中文</a>
+<a href="https://github.com/lon-yang/angularx-semantic-ui/blob/master/components/progress/README_CN.md">简体中文</a>
 
 ```typesctript
-  import { PROGRESS_DIRECTIVES } from 'angular2-semantic-ui'
+  import { PROGRESS_DIRECTIVES } from 'angularx-semantic-ui'
 ```
 ```html
   <lsu-progress [label]="'Uploading file'" [percent]="percent" [text]="''" [color]="'teal'" [size]="'standard'"></lsu-progress>
