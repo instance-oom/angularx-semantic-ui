@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build -prod --aot=true",
     "build.ngm": "ngm build -p src --clean"
   },
   "repository": {
