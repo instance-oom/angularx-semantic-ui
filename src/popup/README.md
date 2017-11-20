@@ -1,5 +1,5 @@
 # Popup Usage
-<a href="https://github.com/lon-yang/angularx-semantic-ui/blob/master/components/popup/README_CN.md">简体中文</a>
+<a href="https://github.com/lon-yang/angularx-semantic-ui/blob/master/src/popup/README_CN.md">简体中文</a>
 
 ```typesctript
   import { POPUP_DIRECTIVES } from 'angularx-semantic-ui/compangularx-semantic-uionents'

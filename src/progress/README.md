@@ -1,5 +1,5 @@
 # Progress Usage
-<a href="https://github.com/lon-yang/angularx-semantic-ui/blob/master/components/progress/README_CN.md">简体中文</a>
+<a href="https://github.com/lon-yang/angularx-semantic-ui/blob/master/src/progress/README_CN.md">简体中文</a>
 
 ```typesctript
   import { PROGRESS_DIRECTIVES } from 'angularx-semantic-ui'

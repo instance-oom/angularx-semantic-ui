@@ -1,5 +1,5 @@
 # Modal Usage
-<a href="https://github.com/lon-yang/angularx-semantic-ui/blob/master/components/modal/README_CN.md">简体中文</a>
+<a href="https://github.com/lon-yang/angularx-semantic-ui/blob/master/src/modal/README_CN.md">简体中文</a>
 
 ```typesctript
   import { MODAL_DIRECTIVES } from 'angularx-semantic-ui'

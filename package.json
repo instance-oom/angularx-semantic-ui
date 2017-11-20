@@ -1,13 +1,28 @@
 {
   "name": "angularx-semantic-ui",
-  "version": "0.0.0",
-  "license": "MIT",
+  "version": "0.0.1",
+  "license": "Apache License 2.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "build.ngm": "ngm build -p src --clean"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lon-yang/angularx-semantic-ui.git"
+  },
+  "keywords": [
+    "angular2",
+    "semantic",
+    "ui",
+    "semantic-ui"
+  ],
+  "author": "Lon.L.Yang",
+  "bugs": {
+    "url": "https://github.com/lon-yang/angularx-semantic-ui/issues"
+  },
+  "homepage": "https://github.com/lon-yang/angularx-semantic-ui#readme",
   "private": true,
   "dependencies": {
     "@angular/animations": "^5.0.0",

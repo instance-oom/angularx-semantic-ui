@@ -1,5 +1,5 @@
 # Accordion Usage
-<a href="https://github.com/lon-yang/angularx-semantic-ui/blob/master/components/accordion/README_CN.md">简体中文</a>
+<a href="https://github.com/lon-yang/angularx-semantic-ui/blob/master/src/accordion/README_CN.md">简体中文</a>
 
 ```typesctript
   import { ACCORDION_DIRECTIVES } from 'angularx-semantic-ui'
