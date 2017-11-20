@@ -15,7 +15,7 @@ import { L_SEMANTIC_UI_MODULE } from 'angularx-semantic-ui';
 ```
 
 # Demo 
-[Online](https://lon-yang.github.io/angularx-semantic-ui-demo)
+[Online](https://lon-yang.github.io/angularx-semantic-ui)
 
 # Current Included Components
 - <a href="https://github.com/lon-yang/angularx-semantic-ui/blob/master/src/checkbox">CheckBox</a>
