@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build -prod --aot=true",
+    "build": "ng build -prod --aot=true --base-href=/angularx-semantic-ui/",
     "build.ngm": "ngm build -p src --clean"
   },
   "repository": {
