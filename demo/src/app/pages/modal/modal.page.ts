@@ -10,6 +10,7 @@ export class ModalDemoPage {
   demoModal: any;
 
   modalOptions: any;
+  active: boolean;
 
   constructor() {
 

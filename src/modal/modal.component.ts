@@ -14,8 +14,8 @@ import { Component, Input, ViewChild, ElementRef, Renderer } from '@angular/core
   ],
   template: `
     <div class="ui dimmer modals page trans-fadeout" style="display: block !important"
-      [style.visibility] = "actived ? 'visible' : 'hidden'"
-      [style.opacity] = "actived ? '1' : '0'"
+      [style.visibility] = "active ? 'visible' : 'hidden'"
+      [style.opacity] = "active ? '1' : '0'"
       (click)="_closeModal()">
       <div #modalContent class="ui {{options.size || ''}} {{options.type || ''}} modal active visibility" (click)="_clickContent($event)">
         <ng-content></ng-content>
@@ -32,7 +32,20 @@ export class ModalComponent {
   @ViewChild('modalContent')
   modalContent: ElementRef;
 
-  actived: boolean;
+  _active: boolean;
+  @Input()
+  public set active(val: boolean) {
+    this._active = val;
+    if (val) {
+      this.show();
+    } else {
+      this.hide();
+    }
+  }
+  public get active(): boolean {
+    return this._active;
+  }
+
   element: any;
 
   constructor(
@@ -56,12 +69,12 @@ export class ModalComponent {
       let eleHeight = this.element.offsetHeight;
       let top = (windowHeight - eleHeight) / 2;
       this.element.style.top = top + 'px';
-      this.actived = true;
+      this._active = true;
     });
   }
 
   hide() {
-    this.actived = false;
+    this._active = false;
     this._renderer.setElementClass(document.body, 'dimmed', false);
   }
 

@@ -1,0 +1,137 @@
+<h1 class="ui header">
+  Rating Demo
+  <div class="sub header">
+    A rating indicates user interest in content
+  </div>
+</h1>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Design
+  </h3>
+  <lsu-rating [(ngModel)]="rating" [maxRating]="getMaxRating()" [type]="type" [size]="size"></lsu-rating>
+</div>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Operate
+  </h3>
+  <div class="ui grid">
+    <div class="two wide column">
+      <span style="line-height: 38px;">
+        Value: <span style="color: tomato">{{ rating }}</span>
+      </span>
+    </div>
+    <div class="three wide column" style="display: inline-flex">
+      <span style="line-height: 38px; margin-right: 5px;">Max Rating:</span>
+      <lsu-dropdown [(ngModel)]="maxRating" [data]="sizes"></lsu-dropdown>
+    </div>
+    <div class="three wide column">
+      Type:
+      <div class="ui buttons">
+        <button class="ui icon button" [class.active]="type == 'star'" (click)="setType('star')">
+          Star
+        </button>
+        <button class="ui icon button" [class.active]="type == 'heart'" (click)="setType('heart')">
+          Heart
+        </button>
+      </div>
+    </div>
+    <div class="eight wide column">
+      Size:
+      <div class="ui buttons">
+        <button class="ui icon button" [class.active]="size == 'mini'" (click)="setSize('mini')">
+          Mini
+        </button>
+        <button class="ui icon button" [class.active]="size == 'tiny'" (click)="setSize('tiny')">
+          Tiny
+        </button>
+        <button class="ui icon button" [class.active]="size == 'small'" (click)="setSize('small')">
+          Small
+        </button>
+        <button class="ui icon button" [class.active]="size == 'default'" (click)="setSize('default')">
+          Default
+        </button>
+        <button class="ui icon button" [class.active]="size == 'large'" (click)="setSize('large')">
+          Large
+        </button>
+        <button class="ui icon button" [class.active]="size == 'huge'" (click)="setSize('huge')">
+          Huge
+        </button>
+        <button class="ui icon button" [class.active]="size == 'massive'" (click)="setSize('massive')">
+          Massive
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Options
+  </h3>
+  <ul class="ui list">
+    <li value="-"><strong>rating:</strong>&nbsp;&nbsp;<strong style="color:tomato">Required</strong>. Current rating</li>
+    <li value="-"><strong>maxRating:</strong>&nbsp;&nbsp;<strong style="color:tomato">Required</strong>. Maximum rating</li>
+    <li value="-"><strong>type:</strong>&nbsp;&nbsp;Optional. Rating icon type [ heart | star(default)]</li>
+    <li value="-"><strong>size:</strong>&nbsp;&nbsp;Optional. [ mini | tiny | small | normal(default) | large | huge | massive ]</li>
+  </ul>
+</div>
+
+<div class="m-t-md">
+  <h3 class="ui dividing header">
+    Codes
+  </h3>
+  <lsu-tabset [type]="'secondary'">
+    <lsu-tab [headerText]="'rating.html'">
+      <pre lsu-codeblock [language]="'html'">
+        <textarea>
+<lsu-rating [(ngModel)]="rating" [maxRating]="getMaxRating()" [type]="type" [size]="size"></lsu-rating>
+        </textarea>
+      </pre>
+    </lsu-tab>
+    <lsu-tab [headerText]="'rating.page.ts'">
+      <pre lsu-codeblock [language]="'typescript'">
+        <textarea>
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'rating-demo',
+  templateUrl: './rating.html'
+})
+export class RatingDemoPage {
+
+  rating: number = 3;
+
+  type: string = 'star';
+  size: string = "default";
+
+  sizes: Array<string> = [];
+  maxRating: string = '10';
+
+  constructor() {
+  }
+
+  ngOnInit() {
+    for (let i = 5; i < 15; i++) {
+      this.sizes.push(i + '');
+    }
+  }
+
+  getMaxRating(): number {
+    return parseInt(this.maxRating);
+  }
+
+  setType(type: string): void {
+    this.type = type;
+  }
+
+  setSize(size: string): void {
+    this.size = size;
+  }
+}
+        </textarea>
+      </pre>
+    </lsu-tab>
+  </lsu-tabset>
+</div>

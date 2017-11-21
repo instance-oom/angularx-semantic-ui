@@ -12,6 +12,7 @@ import { ModalDemoPage } from './modal/modal.page';
 import { PaginatinDemoPage } from './pagination/pagination.page';
 import { PopupDemoPage } from './popup/popup.page';
 import { ProgressDemoPage } from './progress/progress.page';
+import { RatingDemoPage } from './rating/rating.page';
 import { TabDemoPage } from './tab/tab.page';
 import { TagsInputDemoPage } from './tags-input/tags-input.page';
 
@@ -29,6 +30,7 @@ const routes: Routes = [
         { path: 'pagination', component: PaginatinDemoPage },
         { path: 'popup', component: PopupDemoPage },
         { path: 'progress', component: ProgressDemoPage },
+        { path: 'rating', component: RatingDemoPage },
         { path: 'tab', component: TabDemoPage },
         { path: 'tags-input', component: TagsInputDemoPage }
       ]
